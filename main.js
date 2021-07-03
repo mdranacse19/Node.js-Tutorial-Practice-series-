@@ -1,22 +1,18 @@
-const http = require('http');
+const HTTP = require('http');
+const URL = require('url');
 
-var serverCreate = http.createServer(function (request, response) {
-    if (request.url == '/'){
-        response.writeHead(200, {'Content-type':'text/html'});
-        response.write("<h2>This is home page</h2>");
-        response.end();
+var serverCreate = HTTP.createServer(function (request, response) {
 
-    } else if (request.url == '/about'){
-        response.writeHead(200, {'Content-type':'text/html'});
-        response.write("<h2>This is about page</h2>");
-        response.end();
+    let setUrl = "https://www.youtube.com/watch?v=JWnpfkA6V2A&list=PLkyGuIcLcmx2qXaZkjCL8-P78i2J5rDOa&index=9";
+    let parseUrl = URL.parse(setUrl, true);
 
-    } else if (request.url == '/contact'){
-        response.writeHead(200, {'Content-type':'text/html'});
-        response.write("<h2>This is contact page</h2>");
-        response.end();
+    response.writeHead(200, {'Content-Type': 'text/html'})
+    response.write(parseUrl.host +'<br>');
+    response.write(parseUrl.pathname +'<br>');
+    response.write(parseUrl.search +'<br>');
+    response.write(parseUrl.query.list +'<br>');
+    response.end()
 
-    }
 })
 serverCreate.listen(1111);
 console.log('server created successfully');
