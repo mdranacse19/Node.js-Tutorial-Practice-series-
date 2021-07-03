@@ -1,0 +1,21 @@
+{
+  "name": "Tutorial-Practice-Series",
+  "version": "1.0.0",
+  "description": "Node.js Tutorial Bangla By Rabbil Hasan [Youtube]",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdranacse19/Node.js-Tutorial-Practice-series-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mdranacse19/Node.js-Tutorial-Practice-series-/issues"
+  },
+  "homepage": "https://github.com/mdranacse19/Node.js-Tutorial-Practice-series-#readme"
+}
