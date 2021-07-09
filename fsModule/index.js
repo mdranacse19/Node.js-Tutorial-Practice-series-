@@ -65,8 +65,8 @@ const createServer = HTTP.createServer(function (request, response) {
         })*/
 
         // async file exist
-        let fsExistError = FS.existsSync('test_renamew.txt');
-        if (fsExistError){
+        let fsExistResult = FS.existsSync('test_renamew.txt');
+        if (fsExistResult){
             response.end('True')
         }else{
             response.end('False')
