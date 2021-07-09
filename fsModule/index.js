@@ -51,8 +51,8 @@ const createServer = HTTP.createServer(function (request, response) {
             }
         })*/
 
-        // async file delete file
-        FS.unlink('test2.txt', function (error) {
+        // async file delete
+        /*FS.unlink('test2.txt', function (error) {
             if (error){
                 response.writeHead(404, {'Content-Type': 'text/html'})
                 response.write("File deleted fail")
@@ -62,7 +62,15 @@ const createServer = HTTP.createServer(function (request, response) {
                 response.write("File deleted success")
                 response.end()
             }
-        })
+        })*/
+
+        // async file exist
+        let fsExistError = FS.existsSync('test_renamew.txt');
+        if (fsExistError){
+            response.end('True')
+        }else{
+            response.end('False')
+        }
     }
 });
 createServer.listen(8000);
