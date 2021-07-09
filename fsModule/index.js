@@ -16,7 +16,7 @@ const createServer = HTTP.createServer(function (request, response) {
         response.end();*/
 
         //async file write
-        FS.writeFile('test.txt', 'welcome to node js platform 2', function (error) {
+        /*FS.writeFile('test.txt', 'welcome to node js platform 2', function (error) {
             if (error) {
                 response.writeHead(404, {'Content-Type': 'text/html'})
                 response.write("File write fail")
@@ -25,7 +25,18 @@ const createServer = HTTP.createServer(function (request, response) {
             response.writeHead(404, {'Content-Type': 'text/html'})
             response.write("File write success")
             response.end()
-        })
+        })*/
+        //sync file write
+        let fsError = FS.writeFileSync('test2.txt', 'welcome to node js platform');
+        if (fsError){
+            response.writeHead(404, {'Content-Type': 'text/html'})
+            response.write("File write fail")
+            response.end()
+        }else{
+            response.writeHead(404, {'Content-Type': 'text/html'})
+            response.write("File write success")
+            response.end()
+        }
     }
 });
 createServer.listen(8000);
