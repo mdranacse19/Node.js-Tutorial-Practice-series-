@@ -39,7 +39,7 @@ const createServer = HTTP.createServer(function (request, response) {
         }*/
 
         // async file rename
-        FS.rename('test.txt', 'test_rename.txt', function (error) {
+        /*FS.rename('test.txt', 'test_rename.txt', function (error) {
             if (error){
                 response.writeHead(404, {'Content-Type': 'text/html'})
                 response.write("File rename fail")
@@ -47,6 +47,19 @@ const createServer = HTTP.createServer(function (request, response) {
             }else{
                 response.writeHead(404, {'Content-Type': 'text/html'})
                 response.write("File rename success")
+                response.end()
+            }
+        })*/
+
+        // async file delete file
+        FS.unlink('test2.txt', function (error) {
+            if (error){
+                response.writeHead(404, {'Content-Type': 'text/html'})
+                response.write("File deleted fail")
+                response.end()
+            }else{
+                response.writeHead(404, {'Content-Type': 'text/html'})
+                response.write("File deleted success")
                 response.end()
             }
         })
