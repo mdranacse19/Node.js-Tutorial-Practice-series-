@@ -10,7 +10,8 @@ connectDB.connect(function (error) {
     }else{
         console.log('connection success!')
         //insertData(connectDB)
-        deleteData(connectDB)
+        //deleteData(connectDB)
+        updateData(connectDB)
     }
 
 })
@@ -27,6 +28,16 @@ function insertData(conn) {
 //for delete data
 function deleteData(conn) {
     let sqlQuery = "DELETE FROM student_list WHERE id = 5";
+    conn.query(sqlQuery, function (error) {
+        if(error) console.log("Query execute failed! " +error)
+        console.log("Query execute success! ")
+    })
+}
+
+//for update data
+function updateData(conn) {
+    let sqlQuery = "UPDATE student_list SET name='md. rakib uddin rana',role='01',address='Barishat, Sreepur, Magura'" +
+        " WHERE id = '4'"
     conn.query(sqlQuery, function (error) {
         if(error) console.log("Query execute failed! " +error)
         console.log("Query execute success! ")
