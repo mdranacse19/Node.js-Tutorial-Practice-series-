@@ -11,7 +11,8 @@ connectDB.connect(function (error) {
         console.log('connection success!')
         //insertData(connectDB)
         //deleteData(connectDB)
-        updateData(connectDB)
+        //updateData(connectDB)
+        getAllData(connectDB)
     }
 
 })
@@ -41,5 +42,18 @@ function updateData(conn) {
     conn.query(sqlQuery, function (error) {
         if(error) console.log("Query execute failed! " +error)
         console.log("Query execute success! ")
+    })
+}
+
+//for get all data
+function getAllData(conn) {
+    let sqlQuery = "select * from student_list"
+    conn.query(sqlQuery, function (error, result) {
+        if(error) {
+            console.log("Query execute failed! " +error)
+        } else {
+            console.log("Query execute success! ")
+            console.log(result)
+        }
     })
 }
